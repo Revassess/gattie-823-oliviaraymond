@@ -1,0 +1,1 @@
+SELECT username,  categoryName, question, answer WHERE user_id = '4';

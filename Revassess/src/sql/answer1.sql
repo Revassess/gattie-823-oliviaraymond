@@ -1,0 +1,1 @@
+SELECT * FROM app_user WHERE role_id ='BASIC_USER';

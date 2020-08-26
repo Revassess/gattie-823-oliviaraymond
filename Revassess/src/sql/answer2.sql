@@ -1,0 +1,1 @@
+INSERT INTO app_user (role_id) VALUES ('PREMIUM_USER');

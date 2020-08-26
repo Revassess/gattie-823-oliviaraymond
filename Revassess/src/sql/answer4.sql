@@ -1,1 +1,1 @@
-SELECT username,  categoryName, question, answer WHERE user_id = '4';
+SELECT username,  categoryName, question, answer FROM app_user JOIN study_set ON user_id = owner_id JOIN study_set_card USING (study_set_id) JOIN flashcard USING (flashcard_id) JOIN category USING (category_id) WHERE user_id = (SELECT owner_id FROM study_set WHERE study_set_id = 4);

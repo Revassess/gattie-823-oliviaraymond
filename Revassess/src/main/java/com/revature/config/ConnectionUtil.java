@@ -1,12 +1,14 @@
 package com.revature.config;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * 
  * @author Revature
  *
- *         This is a paceholder class to hold the configurations of your db
+ *         This is a placeholder class to hold the configurations of your db
  *         connection. You should change the url, username, and password. DO NOT
  *         CHANGE THE MODIFIERS OR THE NAMES OF THE VARIABLES. These are used to
  *         test your db schema.
@@ -16,19 +18,29 @@ public class ConnectionUtil {
 	private static ConnectionUtil cu;
 	
 	// add your jdbc url
-	public static final String URL = "";
+	public static final String URL = "javafs200803.ceaalsuzinzr.us-east-2.rds.amazonaws.com";
 	// add your jdbc username
-	public static final String USERNAME = "";
+	public static final String USERNAME = "postgres";
 	// add your jdbc password
-	public static final String PASSWORD = "";
+	public static final String PASSWORD = "password";
 	// name of the created stored procedure in tier 3
 	public static final String TIER_3_PROCEDURE_NAME = "";
 	// name of the created sequence in tier 3
 	public static final String TIER_3_SEQUENCE_NAME = "";
 
 	// implement this method to connect to the db and return the connection object
-	public Connection connect(){
-		return null;
+	public Connection connect() throws SQLException {
+		try {
+			Class.forName("org.postgresql.Driver");
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String url ="jdbc:postgresql://javafs200803.ceaalsuzinzr.us-east-2.rds.amazonaws.com:5432/postgres";
+		String username = "postgres";
+		String password = "password";
+		
+		return DriverManager.getConnection(url, username, password);
 	}
 
 
